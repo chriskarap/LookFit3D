@@ -41,11 +41,14 @@ const clothes = [
     // }
 ];
 
-let windowHalfX = window.innerWidth / 2;
-let windowHalfY = window.innerHeight / 2;
+const view = document.getElementById('model');
+view.height = window.innerHeight;
+
+let windowHalfX = view.offsetWidth / 2;
+let windowHalfY = view.offsetHeight / 2;
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, view.offsetWidth / view.offsetHeight, 0.1, 1000);
 camera.position.set(0, 0.9, 1.5);
 
 const lightAmbient = new THREE.AmbientLight(0xdcdcdc, 0.8);
@@ -60,16 +63,16 @@ light2.position.set(1.6, 0.6, 2.5);
 scene.add(light2);
 
 const renderer = new THREE.WebGLRenderer({alpha: true, antialias : true});
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+renderer.setSize(view.offsetWidth, view.offsetHeight);
+view.appendChild(renderer.domElement);
 
 window.addEventListener('resize', onWindowResize, false);
 function onWindowResize() {
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
-    camera.aspect = window.innerWidth / window.innerHeight;
+    windowHalfX = view.offsetWidth / 2;
+    windowHalfY = view.offsetHeight / 2;
+    camera.aspect = view.offsetWidth / view.offsetHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(view.offsetWidth, view.offsetHeight);
 }
 
 const person = new Person();
@@ -84,7 +87,6 @@ loadObj(URL.female, 'female.obj', 'female.mtl').then((model) => {
 for (let i = 0; i < clothes.length; i++) {
     loadObj(clothes[i].url, clothes[i].obj, clothes[i].mtl).then((model) => {
         model.position.y = -0.9;
-        console.log(model);
         model.children[0].material.side = THREE.DoubleSide;
         person.add(model);
     });
