@@ -1,4 +1,4 @@
-const clothes = [
+const clothes_list = [
     {
         url: './models/female_objs/blue_jeans/',
         obj: 'Blue_Jeans.obj',

@@ -31,23 +31,53 @@
 </head>
 <body>
 
-<div id='header'></div>
-<div id='context' class="row padding-margin">
-    <div id="filters" class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
-    <div id="model" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
-    <div id="dresses" class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
+<div id='header' class="row">
+    <div id='logo' class="padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <img src="icons/Lookfit_logo.png">
+    </div>
+    <div id='userData' class="row padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div id="favourite" class="padding-margin ">
+            <img src="icons/Star.png">
+        </div>
+        <div id="userPic" class="padding-margin image-cropper">
+            <img src="icons/Cloth.png">
+        </div>
+    </div>
 </div>
 
+<canvas id="c"></canvas>
+
+<div id='context' class="row padding-margin">
+    <div id="filters" class="padding-margin col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
+    <div id="model" class="padding-margin col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+    <div id="clothes" class="padding-margin col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="row">
+            <div id="description" class="padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <h3>Title</h3>
+                <span>Create by Christina</span>
+            </div>
+            <div id="obj" class="padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div id="content">
+                    <div>iple elements - webgl</div>
+                </div>
+                <script id="template" type="notjs">
+                    <div class="scene" style="height: 200px; width: 200px;"></div>
+                    <div class="description">Scene $</div>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="js/three.js"></script>
 <script src="js/MTLLoader.js"></script>
 <script src="js/OBJLoader.js"></script>
 <script src="js/OrbitControls.js"></script>
 <script src="ModelLoader.js"></script>
-<!--<script src="ObjectControls.js"></script>-->
+<script src="clothes_list.js"></script>
+<script src="Clothes.js"></script>
 <script src="Person.js"></script>
 <script src="index.js"></script>
-
 
 </body>
 </html>
