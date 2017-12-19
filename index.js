@@ -1,60 +1,83 @@
-const URL = {
-    female: './models/female_objs/female/'
+const avatarURL = {
+    female: {
+        type: 'female',
+        url: './models/female_objs/female/',
+        obj: 'female.obj',
+        mtl: 'female.mtl'
+    }
 };
 
-const view = document.getElementById('model');
-// view.height = window.innerHeight;
+let avatarReady = false;
 
-let viewHalfX = view.offsetWidth / 2;
-let viewHalfY = view.offsetHeight / 2;
+function init() {
+    const avatarView = document.getElementById('model');
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, view.offsetWidth / view.offsetHeight, 0.1, 1000);
-camera.position.set(0, 0.85, 1.5);
+    const c = document.getElementById('myCanvas');
+    const ctx = c.getContext("2d");
+    const my_gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+    my_gradient.addColorStop(0, "#f4f4f4");
+    my_gradient.addColorStop(0.4, "#FFF");
+    my_gradient.addColorStop(0.6, "#FFF");
+    my_gradient.addColorStop(1, "#dcdcdc");
+    ctx.fillStyle = my_gradient;
+    ctx.fillRect(0, 0, avatarView.offsetWidth, avatarView.offsetHeight);
 
-const lightAmbient = new THREE.AmbientLight(0xdcdcdc, 0.8);
-scene.add(lightAmbient);
+    /////////////////////////////
+    const avatarControllerObj = new ControllerObj(avatarView);
 
-const light1 = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-light1.position.set(-1.6, 2.5, 3);
-scene.add(light1);
+    loadObj(avatarURL.female.url, avatarURL.female.obj, avatarURL.female.mtl).then((model) => {
+        avatarControllerObj.avatar = avatarURL.female.type;
+            avatarControllerObj.add(model);
+        avatarControllerObj.setModelSize(model);
+        createScene(avatarControllerObj, avatarView, {x: 0, y: 0, z: 10});
 
-const light2 = new THREE.DirectionalLight(0xFFFFFF, 0.1);
-light2.position.set(1.6, 0.6, 2.5);
-scene.add(light2);
-
-const renderer = new THREE.WebGLRenderer({alpha: true, antialias : true});
-renderer.setSize(view.offsetWidth, view.offsetHeight);
-view.appendChild(renderer.domElement);
-
-window.addEventListener('resize', onWindowResize, false);
-function onWindowResize() {
-    viewHalfX = view.offsetWidth / 2;
-    viewHalfY = view.offsetHeight / 2;
-    camera.aspect = view.offsetWidth / view.offsetHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(view.offsetWidth, view.offsetHeight);
-}
-
-const person = new Person();
-
-loadObj(URL.female, 'female.obj', 'female.mtl').then((model) => {
-    model.position.y = -0.9;
-    person.add(model);
-});
-
-for (let i = 0; i < clothes_list.length; i++) {
-    if(clothes_list[i].visible)
-    loadObj(clothes_list[i].url, clothes_list[i].obj, clothes_list[i].mtl).then((model) => {
-        model.position.y = -0.9;
-        model.children[0].material.side = THREE.DoubleSide;
-        person.add(model);
+        avatarReady = true;
     });
+
+    ///////////////////
+    const clothesView = document.getElementById('clothes');
+    const template = document.getElementById('template').text;
+    const clothes = [];
+    const elemClassName = 'cloth';
+
+    for (let i = 0; i < clothes_list.length; i++) {
+        const element = document.createElement("div");
+        element.classList += ' row';
+        element.classList += ' disableSelection';
+        element.setAttribute('data-index', elemClassName + (i));
+        element.innerHTML = template;
+        element.getElementsByTagName('h5')[0].innerHTML = clothes_list[i].title;
+        clothesView.appendChild(element);
+        clothes.push(element);
+
+        const objView = element.querySelector(".obj");
+        const clothesControllerObj = new ControllerObj(objView);
+
+        loadObj(clothes_list[i].url, clothes_list[i].obj, clothes_list[i].mtl).then((model) => {
+            clothesControllerObj.add(model);
+            clothesControllerObj.setModelSize(model);
+
+            createScene(clothesControllerObj, objView, {x: 0, y: 0, z: 1.3});
+        });
+    }
+
+    clothes.forEach((elem) => {
+        elem.addEventListener('mousedown', (event) => {
+            if (!avatarReady) return;
+            this.buttonDownTime = Date.now();
+        });
+
+        elem.addEventListener('mouseup', (event) => {
+            if (Date.now() - this.buttonDownTime < 200) {
+                const elemIndex = elem.getAttribute('data-index').toString();
+                const index = elemIndex.replace(elemClassName, '');
+                const item = clothes_list[index];
+                ClothesFitting(item, avatarControllerObj);
+            }
+        })
+    });
+
+
 }
-//
-// function animate() {
-//     requestAnimationFrame(animate);
-//     renderer.render(scene, camera);
-// }
-//
-// animate();
+
+init();

@@ -1,20 +1,11 @@
-/*canvas {*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*z-index: 8;*/
-    /*position: absolute;*/
-    /*background-image: -webkit-gradient(#f4f4f4, #ffffff, #dcdcdc);*/
-    /*!* Safari 5.1, iOS 5.0-6.1, Chrome 10-25, Android 4.0-4.3 *!*/
-    /*background-image: -webkit-linear-gradient(#f4f4f4, #ffffff, #dcdcdc);*/
-    /*!* Firefox 3.6 - 15 *!*/
-    /*background-image: -moz-linear-gradient(#f4f4f4, #ffffff, #dcdcdc);*/
-    /*!* Opera 11.1 - 12 *!*/
-    /*background-image: -o-linear-gradient(#f4f4f4, #ffffff, #dcdcdc);*/
-    /*!* Opera 15+, Chrome 25+, IE 10+, Firefox 16+, Safari 6.1+, iOS 7+, Android 4.4+ *!*/
-    /*background-image: linear-gradient(#f4f4f4, #ffffff, #dcdcdc);*/
-/*}*/
+canvas {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+    position: absolute;
+}
 
 html, body {
     width: 100%;
@@ -23,8 +14,18 @@ html, body {
     overflow: hidden;
     color: #c0c0c0;
 }
-h3{
+
+h5{
     color: #212121;
+}
+.disableSelection{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: 0;
 }
 
 .padding-margin {
@@ -32,16 +33,14 @@ h3{
     margin: 0;
 }
 
+.navbar-nav{
+    flex-direction: row !important;
+}
+
 #header {
     background-color: #66023c;
     width: 100%;
-    padding: 20px;
     margin: 0;
-}
-
-#header >* {
-    display: flex;
-    align-items: center;
 }
 
 .image-cropper {
@@ -53,15 +52,13 @@ h3{
 #userPic img {
     display: inline;
     margin: 0 auto;
-    height: 100%;
+    height: 40px;
     width: auto;
     background-color: white;
 }
-
-
-/*#userData > *{*/
-    /*@include float-right;*/
-/*}*/
+#star{
+    padding-right: 15px;
+}
 
 #context {
     width: 100%;
@@ -70,44 +67,56 @@ h3{
 }
 
 #filters {
-    background-color: #dcdcdc;
     display: inline-grid;
 }
 
 #model {
-    background-color: #ffffff;
     display: inline-grid;
-    /*overflow: hidden;*/
-    background-image: -webkit-gradient(#f4f4f4, #ffffff, #dcdcdc);
-    /* Safari 5.1, iOS 5.0-6.1, Chrome 10-25, Android 4.0-4.3 */
-    background-image: -webkit-linear-gradient(#f4f4f4, #ffffff, #dcdcdc);
-    /* Firefox 3.6 - 15 */
-    background-image: -moz-linear-gradient(#f4f4f4, #ffffff, #dcdcdc);
-    /* Opera 11.1 - 12 */
-    background-image: -o-linear-gradient(#f4f4f4, #ffffff, #dcdcdc);
-    /* Opera 15+, Chrome 25+, IE 10+, Firefox 16+, Safari 6.1+, iOS 7+, Android 4.4+ */
-    background-image: linear-gradient(#f4f4f4, #ffffff, #dcdcdc);
 }
 
 #clothes {
     background-color: white;
-    display: inline-grid;
+    overflow: auto;
 }
 
 
 #clothes >*{
     width: auto;
-    height: 18%;
+    height: 150px;
     border: solid 1px #b9b9b9;
     border-radius: 5px;
     margin: 15px;
-    padding: 15px;
     box-shadow: 0 0 3px 0 rgba(185,185,185, 1);
 }
 
-#c {
-    position: fixed;
-    left: 0px;
-    width: 100%;
-    height: 100%;
+#description {
+    padding: 15px 0 15px 15px;
 }
+
+
+div[data-index]{
+}
+
+div[data-index] >*{
+}
+
+
+/*@media (max-width: 767px){*/
+    /*#filters, #clothes {*/
+        /*display: none;*/
+    /*}*/
+/*}*/
+
+
+/*@media (min-width: 768px){*/
+    /*#filters {*/
+        /*display: inline-grid;*/
+    /*}*/
+
+    /*#clothes {*/
+        /*display: inline-grid;*/
+        /*background-color: white;*/
+        /*overflow: auto;*/
+    /*}*/
+/*}*/
+

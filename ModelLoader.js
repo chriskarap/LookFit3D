@@ -15,6 +15,9 @@ const loadObj = (path, objPath, mtlPath) => {
             ModelLoader.setMaterials(mtl);
             ModelLoader.load(objPath, (obj) => {
                 res = obj;
+                res.children.forEach( (child)=>{
+                    child.material.side = THREE.DoubleSide;
+                });
                 resolve(res);
             });
         });
