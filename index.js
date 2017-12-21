@@ -10,7 +10,11 @@ const avatarURL = {
 let avatarReady = false;
 
 function init() {
+    const header = document.getElementById('header');
     const avatarView = document.getElementById('model');
+    const contextHeight = (avatarView.offsetHeight - header.offsetHeight) + 'px';
+
+    avatarView.style.height = contextHeight;
 
     const c = document.getElementById('myCanvas');
     const ctx = c.getContext("2d");
@@ -29,13 +33,14 @@ function init() {
         avatarControllerObj.avatar = avatarURL.female.type;
             avatarControllerObj.add(model);
         avatarControllerObj.setModelSize(model);
-        createScene(avatarControllerObj, avatarView, {x: 0, y: 0, z: 10});
+        createScene(avatarControllerObj, avatarView, {x: 0, y: 0, z: 7.5});
 
         avatarReady = true;
     });
 
     ///////////////////
     const clothesView = document.getElementById('clothes');
+    clothesView.style.height = contextHeight;
     const template = document.getElementById('template').text;
     const clothes = [];
     const elemClassName = 'cloth';
@@ -57,7 +62,7 @@ function init() {
             clothesControllerObj.add(model);
             clothesControllerObj.setModelSize(model);
 
-            createScene(clothesControllerObj, objView, {x: 0, y: 0, z: 1.3});
+            createScene(clothesControllerObj, objView, {x: 0, y: 0, z: 1.4});
         });
     }
 

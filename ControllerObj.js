@@ -78,7 +78,9 @@ class ControllerObj extends THREE.Object3D {
         (this.modelWidth > this.modelHeight) ?
             this.proportion = this.view.offsetHeight / this.modelWidth : this.proportion = this.view.offsetHeight / this.modelHeight;
 
-        this.scale.set(this.proportion / 100, this.proportion / 100, this.proportion / 100);
+        this.proportion /= 100;
+
+        this.scale.set(this.proportion, this.proportion, this.proportion);
     }
 
 }

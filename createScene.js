@@ -1,13 +1,9 @@
 const createScene = (model, view, cameraPos) => {
-    this.model = model;
-    this.view = view;
-    this.cameraPos = cameraPos;
-
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, this.view.offsetWidth / this.view.offsetHeight, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(75, view.offsetWidth / view.offsetHeight, 0.1, 100);
     camera.position.copy(cameraPos);
 
-    scene.add(this.model);
+    scene.add(model);
 
     const lightAmbient = new THREE.AmbientLight(0xdcdcdc, 0.8);
     scene.add(lightAmbient);
@@ -23,6 +19,7 @@ const createScene = (model, view, cameraPos) => {
     view.appendChild(renderer.domElement);
 
     window.addEventListener('resize', onWindowResize, false);
+
     function onWindowResize() {
         camera.aspect = view.offsetWidth / view.offsetHeight;
         camera.updateProjectionMatrix();
