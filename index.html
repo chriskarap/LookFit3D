@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>look and fit</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -18,21 +19,55 @@
 <script src="ControllerObj.js"></script>
 
 <nav id='header' class="navbar navbar-inverse">
-    <div class="container-fluid">
+    <div class="container-fluid padding-margin">
         <div class="navbar-header">
             <a class="navbar-brand" href="#"><img src="icons/Lookfit_logo.png"></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li id="star"><a href="#"><img src="icons/Star.png"></a></li>
-            <li id="userPic" class="image-cropper"><a href="#">
-                <img src="icons/Minion-Hello-icon.png">
-            </a></li>
+            <li id="userPic" class="image-cropper">
+                <a href="#">
+                    <img src="icons/Minion-Hello-icon.png">
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
 
+
 <div id='context' class="row padding-margin">
-    <div id="filters" class="padding-margin col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
+    <div id="filters" class="padding-margin col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="padding-margin row">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <img src="icons/Search.png">
+                    </button>
+                </span>
+                <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+            </div>
+        </div>
+        <div id="filterContainer">
+            <div class="row">
+                <div class="filter-category padding-margin col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <span>Style:</span>
+                </div>
+                <div class="filter-elements padding-margin col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+                    <button class="btn" type="button">
+                        <span>Mid Waist</span>
+                    </button>
+                    <button class="btn" type="button">
+                        <span>Casual</span>
+                    </button>
+                    <button class="btn" type="button">
+                        <span>Preppy</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
     <div id="model" class="padding-margin col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <canvas id="myCanvas"></canvas>
     </div>
@@ -46,11 +81,17 @@
     </div>
     <div class="obj padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
     </div>
+
+
+
+
+
 </script>
 
 <script src="createScene.js"></script>
 <script src="ClothesFitting.js"></script>
 <script src="index.js"></script>
+
 
 </body>
 </html>

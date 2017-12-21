@@ -52,6 +52,7 @@ function init() {
         element.setAttribute('data-index', elemClassName + (i));
         element.innerHTML = template;
         element.getElementsByTagName('h5')[0].innerHTML = clothes_list[i].title;
+        element.getElementsByTagName('span')[0].innerHTML = clothes_list[i].createBy;
         clothesView.appendChild(element);
         clothes.push(element);
 
