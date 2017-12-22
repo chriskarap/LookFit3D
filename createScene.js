@@ -1,4 +1,5 @@
 const createScene = (model, view, cameraPos) => {
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, view.offsetWidth / view.offsetHeight, 0.1, 100);
     camera.position.copy(cameraPos);

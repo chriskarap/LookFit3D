@@ -5,6 +5,8 @@ canvas {
     height: 100%;
     z-index: 8;
     position: absolute;
+    left: 0;
+    top: 0;
 }
 
 html, body {
@@ -13,14 +15,19 @@ html, body {
     min-height: 100%;
     overflow: hidden;
     color: #c0c0c0;
-    font-family: Roboto !important;
+    /*font-family: Roboto !important;*/
 
 }
 
-h5{
+h5 {
     color: #212121;
 }
-.disableSelection{
+
+a:hover{
+    text-decoration: none;
+}
+
+.disableSelection {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -35,7 +42,7 @@ h5{
     margin: 0;
 }
 
-.navbar-nav{
+.navbar-nav {
     flex-direction: row !important;
 }
 
@@ -58,7 +65,8 @@ h5{
     width: auto;
     background-color: white;
 }
-#star{
+
+#star {
     padding-right: .5rem;
 }
 
@@ -72,42 +80,87 @@ h5{
     padding: 1rem;
 }
 
-
 .btn-default {
     color: #c0c0c0;
     background-color: #fff;
     padding: .5rem;
 
-    -webkit-box-shadow: -1px 0 2px 0 rgba(185,185,185, 1);
-    -moz-box-shadow:    -1px 0 2px 0 rgba(185,185,185, 1);
-    box-shadow:         -1px 0 2px 0 rgba(185,185,185, 1);
-    border-color: #c0c0c0;
+    -webkit-box-shadow: -1px 0 2px 0 rgba(185, 185, 185, 1);
+    -moz-box-shadow:    -1px 0 2px 0 rgba(185, 185, 185, 1);
+    box-shadow:         -1px 0 2px 0 rgba(185, 185, 185, 1);
     border-radius: 5px;
     border-right: none;
 }
-.btn-default:hover{
+
+.btn-default:hover {
     background-color: #f2f2f2;
 }
-.form-control{
+
+.form-control {
     color: #c0c0c0;
     background-color: #fff;
     padding: .5rem;
 
-    -webkit-box-shadow: 1px 0 2px 0 rgba(185,185,185, 1);
-    -moz-box-shadow:    1px 0 2px 0 rgba(185,185,185, 1);
-    box-shadow:         1px 0 2px 0 rgba(185,185,185, 1);
-    border-color: #c0c0c0;
+    -webkit-box-shadow: 1px 0 2px 0 rgba(185, 185, 185, 1);
+    -moz-box-shadow:    1px 0 2px 0 rgba(185, 185, 185, 1);
+    box-shadow:         1px 0 2px 0 rgba(185, 185, 185, 1);
     border-radius: 5px;
-    border-left: none;
+    border: none;
 }
 
-#filterContainer >*{
+#filterContainer > * {
     padding: 0;
     margin: 1rem 0;
 }
 
+.filter-category {
+    padding-top: .375rem;
+}
+
+.filter-category span {
+    text-transform: capitalize
+}
+
+.filter-elements {
+    padding-left: 1rem;
+}
+
+.filer-btn {
+    background-color: #f2f2f2;
+    margin: 0 1rem 1rem 0;
+}
+
+/*.filer-btn:visited {*/
+    /*background-color: #66023c;*/
+/*}*/
+
+.filer-btn span {
+    text-transform: capitalize
+}
+
+.color-btn {
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 2px 0 rgba(185, 185, 185, 1);
+    -moz-box-shadow:    0 0 2px 0 rgba(185, 185, 185, 1);
+    box-shadow:         0 0 2px 0 rgba(185, 185, 185, 1);
+}
 
 #model {
+}
+
+#model-bottom{
+    position: relative;
+    z-index: 100;
+    left: 50%;
+    top: 85%;
+    margin-left: -3rem;
+}
+#model-bottom img{
+    width: 3rem;
+    height: 3rem;
 }
 
 #clothes {
@@ -115,16 +168,14 @@ h5{
     overflow: auto;
 }
 
-
-#clothes >*{
+#clothes > * {
     width: auto;
-    height: 150px;
-    border: solid 1px #b9b9b9;
+    /*height: 150px;*/
     border-radius: 5px;
     margin: 1rem;
-    -webkit-box-shadow: 0 0 3px 0 rgba(185,185,185, 1);
-    -moz-box-shadow:    0 0 3px 0 rgba(185,185,185, 1);
-    box-shadow:         0 0 3px 0 rgba(185,185,185, 1);;
+    -webkit-box-shadow: 0 0 3px 0 rgba(185, 185, 185, 1);
+    -moz-box-shadow:    0 0 3px 0 rgba(185, 185, 185, 1);
+    box-shadow:         0 0 3px 0 rgba(185, 185, 185, 1);;
 }
 
 #description {
@@ -132,29 +183,21 @@ h5{
 }
 
 
-div[data-index]{
-}
-
-div[data-index] >*{
-}
-
-
 /*@media (max-width: 767px){*/
-    /*#filters, #clothes {*/
-        /*display: none;*/
-    /*}*/
+/*#filters, #clothes {*/
+/*display: none;*/
+/*}*/
 /*}*/
 
-
 /*@media (min-width: 768px){*/
-    /*#filters {*/
-        /*display: inline-grid;*/
-    /*}*/
+/*#filters {*/
+/*display: inline-grid;*/
+/*}*/
 
-    /*#clothes {*/
-        /*display: inline-grid;*/
-        /*background-color: white;*/
-        /*overflow: auto;*/
-    /*}*/
+/*#clothes {*/
+/*display: inline-grid;*/
+/*background-color: white;*/
+/*overflow: auto;*/
+/*}*/
 /*}*/
 

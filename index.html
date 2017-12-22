@@ -16,6 +16,7 @@
 <script src="js/OBJLoader.js"></script>
 <script src="ModelLoader.js"></script>
 <script src="clothes_list.js"></script>
+<script src="filtering_list.js"></script>
 <script src="ControllerObj.js"></script>
 
 <nav id='header' class="navbar navbar-inverse">
@@ -24,7 +25,11 @@
             <a class="navbar-brand" href="#"><img src="icons/Lookfit_logo.png"></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li id="star"><a href="#"><img src="icons/Star.png"></a></li>
+            <li id="star">
+                <a href="#">
+                    <img src="icons/Star.png">
+                </a>
+            </li>
             <li id="userPic" class="image-cropper">
                 <a href="#">
                     <img src="icons/Minion-Hello-icon.png">
@@ -33,7 +38,6 @@
         </ul>
     </div>
 </nav>
-
 
 <div id='context' class="row padding-margin">
     <div id="filters" class="padding-margin col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
@@ -48,33 +52,35 @@
             </div>
         </div>
         <div id="filterContainer">
-            <div class="row">
-                <div class="filter-category padding-margin col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <span>Style:</span>
-                </div>
-                <div class="filter-elements padding-margin col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-                    <button class="btn" type="button">
-                        <span>Mid Waist</span>
-                    </button>
-                    <button class="btn" type="button">
-                        <span>Casual</span>
-                    </button>
-                    <button class="btn" type="button">
-                        <span>Preppy</span>
-                    </button>
-                </div>
-            </div>
-
         </div>
-
     </div>
     <div id="model" class="padding-margin col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <canvas id="myCanvas"></canvas>
+
+        <div id="model-bottom">
+            <a href="#">
+                <img src="icons/Favourite.png">
+            </a>
+            <a href="#">
+                <img src="icons/Share.png">
+            </a>
+        </div>
     </div>
     <div id="clothes" class="padding-margin col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
 </div>
 
-<script id="template" type="notjs">
+<script id="template-filter" type="notjs">
+    <div class="filter-category text-right padding-margin col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+        <span></span>
+    </div>
+    <div class="filter-elements padding-margin col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+    </div>
+
+
+</script>
+
+
+<script id="template-3d-clothes" type="notjs">
     <div id="description" class="padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <h5></h5>
         <span>Create by Lookfit</span>
@@ -83,13 +89,13 @@
     </div>
 
 
-
-
-
 </script>
 
 <script src="createScene.js"></script>
 <script src="ClothesFitting.js"></script>
+<script src="filterContainer.js"></script>
+<script src="avatarContainer.js"></script>
+<script src="clothesContainer.js"></script>
 <script src="index.js"></script>
 
 
