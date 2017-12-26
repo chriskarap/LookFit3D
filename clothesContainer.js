@@ -2,7 +2,7 @@ const header = document.getElementById('header');
 const contextHeight = (window.innerHeight - header.offsetHeight);
 
 const clothesContainer = () => {
-    const clothesView = document.getElementById('clothes');
+    const clothesView = document.getElementById('clothes-body');
     clothesView.style.height = contextHeight  + 'px';
     const templateClothes = document.getElementById('template-3d-clothes').text;
     const elemClassName = 'cloth';

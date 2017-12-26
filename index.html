@@ -40,25 +40,31 @@
 </nav>
 
 <div id='context' class="row padding-margin">
-    <div id="filters" class="padding-margin col-xs-11 col-sm-11 col-md-11 col-lg-3 col-xl-3">
-        <div class="padding-margin row">
-            <div class="input-group">
+    <div id="filters" class="row padding-margin col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+        <div id="filters-body" class="padding-margin col-xs-11 col-sm-11 col-md-11 col-lg-12 col-xl-12">
+            <div class="padding-margin row">
+                <div class="input-group">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">
                         <img src="icons/Search.png">
                     </button>
                 </span>
-                <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                    <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                </div>
+            </div>
+            <div id="filterContainer">
             </div>
         </div>
-        <div id="filterContainer">
+
+        <div id="filters-minimize" class="padding-margin col-xs-1 col-sm-1 col-md-1 ">
+            <div id="filters-hamburger">
+                <img src="icons/Hamburger.png" class="" alt="">
+            </div>
         </div>
     </div>
-    <div id="filters-minimize" class="padding-margin col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
 
     <div id="model" class="padding-margin col-xs-10 col-sm-10 col-md-10 col-lg-6 col-xl-6">
         <canvas id="myCanvas"></canvas>
-
         <div id="model-bottom">
             <a href="#">
                 <img src="icons/Favourite.png">
@@ -69,8 +75,16 @@
         </div>
     </div>
 
-    <div id="clothes-minimize" class="padding-margin col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
-    <div id="clothes" class="padding-margin col-xs-11 col-sm-11 col-md-11 col-lg-3 col-xl-3"></div>
+    <div id="clothes" class="row padding-margin col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+        <div id="clothes-minimize" class="padding-margin col-xs-1 col-sm-1 col-md-1">
+            <div id="clothes-hamburger">
+                <img src="icons/Cloth.png" class="" alt="">
+            </div>
+        </div>
+
+        <div id="clothes-body" class="padding-margin col-xs-11 col-sm-11 col-md-11 col-lg-12 col-xl-12">
+        </div>
+    </div>
 </div>
 
 <script id="template-filter" type="notjs">
@@ -79,10 +93,7 @@
     </div>
     <div class="filter-elements padding-margin col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
     </div>
-
-
 </script>
-
 
 <script id="template-3d-clothes" type="notjs">
     <div id="description" class="padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -91,8 +102,6 @@
     </div>
     <div class="obj padding-margin col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
     </div>
-
-
 </script>
 
 <script src="createScene.js"></script>
@@ -100,8 +109,8 @@
 <script src="filterContainer.js"></script>
 <script src="avatarContainer.js"></script>
 <script src="clothesContainer.js"></script>
+<script src="hamburgerAction.js"></script>
 <script src="index.js"></script>
-
 
 </body>
 </html>
