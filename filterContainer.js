@@ -1,4 +1,9 @@
 const filterContainer = () => {
+    const header = document.getElementById('header');
+    const contextHeight = (window.innerHeight - header.offsetHeight);
+    const filtersBody = document.getElementById('filters-body');
+    filtersBody.style.height = contextHeight + 'px';
+
     const filterView = document.getElementById('filterContainer');
     const templateFilter = document.getElementById('template-filter').text;
     for (let key in filtering_list) {
@@ -25,13 +30,12 @@ const filterContainer = () => {
                     span.innerHTML = elem;
                     button.appendChild(span);
 
-                    button.addEventListener('click', ()=>{
+                    button.addEventListener('click', () => {
                         button.style.backgroundColor = '#66023c';
                         span.style.color = '#FFFFFF';
                     });
                 }
             });
-
         }
     }
 };
