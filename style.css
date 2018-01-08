@@ -208,6 +208,7 @@ a:hover {
 }
 
 #clothes-body > * {
+    min-height: 150px;
     width: auto;
     border-radius: 5px;
     margin: 1rem;
@@ -221,6 +222,9 @@ a:hover {
 }
 
 @media screen and (max-width: 991px) {
+    #model-bottom{
+        top: 80%;
+    }
     #filters, #clothes {
         position: fixed;
     }

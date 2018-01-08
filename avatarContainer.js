@@ -32,7 +32,6 @@ const avatarContainer = () => {
         avatarControllerObj.setModelSize(model);
         createScene(avatarControllerObj, avatarView, {x: 0, y: 0, z: 8.5});
 
-        // avatarView.children[2].style.marginLeft = avatarView.offsetWidth/10 + "px";
         avatarReady = true;
     });
 };

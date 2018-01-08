@@ -25,6 +25,45 @@ class ControllerObj extends THREE.Object3D {
             }
         });
 
+        this.xDown = null;
+        this.yDown = null;
+
+        this.view.addEventListener('touchstart', (event) => {
+            this.xDown = event.touches[0].clientX;
+            this.yDown = event.touches[0].clientY;
+        });
+        this.view.addEventListener('touchend', (event) => {
+            this.xDown = null;
+            this.yDown = null;
+        });
+
+        this.view.addEventListener('touchmove', (event) => {
+            if (!this.xDown || !this.yDown) {
+                return;
+            }
+
+            let xUp = event.touches[0].clientX;
+            let yUp = event.touches[0].clientY;
+
+            let xDiff = this.xDown - xUp;
+            let yDiff = this.yDown - yUp;
+
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                (xDiff > 0) ? this.rotation.y -= 0.1 : this.rotation.y += 0.1;
+
+            } else {
+                let nextX;
+                (yDiff > 0) ? nextX = this.rotation.x - 0.05 : nextX = this.rotation.x + 0.05;
+
+                if (!this.border && nextX < Math.PI / 6 && nextX > -Math.PI / 6) {
+                    this.rotation.x = nextX;
+                }
+            }
+
+            this.xDown = xUp;
+            this.yDown = yUp;
+        });
+
         this._trousers = null;
         this._shorts = null;
         this._dress = null;
@@ -35,32 +74,35 @@ class ControllerObj extends THREE.Object3D {
         return this.centerY;
     }
 
-    set trousers(obj){
+    set trousers(obj) {
         this._trousers = obj;
     }
 
-    get trousers(){
+    get trousers() {
         return this._trousers;
     }
-    set shorts(obj){
+
+    set shorts(obj) {
         this._shorts = obj;
     }
 
-    get shorts(){
+    get shorts() {
         return this._shorts;
     }
-    set dress(obj){
+
+    set dress(obj) {
         this._dress = obj;
     }
 
-    get dress(){
+    get dress() {
         return this._dress;
     }
-    set jacket(obj){
+
+    set jacket(obj) {
         this._jacket = obj;
     }
 
-    get jacket(){
+    get jacket() {
         return this._jacket;
     }
 
