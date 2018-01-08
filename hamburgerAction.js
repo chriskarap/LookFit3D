@@ -9,7 +9,7 @@ const hamburgerAction = () => {
 
     filtersHamburger.addEventListener('mouseup', () => {
         (marginFilters === 0) ? marginFilters = -filtersBody.offsetWidth : marginFilters = 0;
-        filters.style.marginLeft = marginFilters + 'px';
+        filters.style.left = marginFilters + 'px';
         (+filters.style.zIndex == 13) ? filters.style.zIndex = '12' : filters.style.zIndex = '13';
     });
 
@@ -22,7 +22,7 @@ const hamburgerAction = () => {
 
     clothesHamburger.addEventListener('mouseup', () => {
         (marginClothes === 0) ? marginClothes = clothesBody.offsetWidth : marginClothes = 0;
-        clothes.style.marginLeft = marginClothes + 'px';
+        clothes.style.left = marginClothes + 'px';
         (+clothes.style.zIndex == 13) ? clothes.style.zIndex = '12' : clothes.style.zIndex = '13';
     });
 
