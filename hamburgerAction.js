@@ -29,14 +29,13 @@ const hamburgerAction = () => {
     window.addEventListener('resize', () => {
         if (window.innerWidth <= 991) {
             if (marginFilters !== 0)
-                filters.style.marginLeft = -filtersBody.offsetWidth + 'px';
+                filters.style.left = -filtersBody.offsetWidth + 'px';
 
             if (marginClothes !== 0)
-                clothes.style.marginLeft = clothesBody.offsetWidth + 'px';
+                clothes.style.left = clothesBody.offsetWidth + 'px';
         } else {
-            filters.style.marginLeft = 0 + 'px';
-            clothes.style.marginLeft = 0 + 'px';
+            filters.style.left = 0 + 'px';
+            clothes.style.left = 0 + 'px';
         }
     });
-
 };
